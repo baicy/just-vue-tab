@@ -1,6 +1,5 @@
 {
   "name": "just-vue-tab",
-  "private": true,
   "version": "0.0.1",
   "scripts": {
     "dev": "vite",
@@ -9,7 +8,7 @@
     "docs:dev": "vitepress dev docs",
     "docs:build": "vitepress build docs",
     "docs:serve": "vitepress serve docs",
-    "release": "standard-version"
+    "release": "standard-version && npm publish"
   },
   "dependencies": {
     "vue": "^3.2.25"
