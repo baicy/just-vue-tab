@@ -1,0 +1,35 @@
+name: Deploy
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v3
+
+      # install node & deps
+      - name: Install node
+        uses: actions/setup-node@v3.2.0
+        with:
+          node-version: "14.X"
+      - name: Install deps
+        run: npm install
+
+      # build vitepress docs
+      - name: Build VitePress
+        run: npm run docs:build
+
+      # push actions
+      - name: Deploy to gh-pages
+        uses: JamesIves/github-pages-deploy-action@v4.3.3
+        with:
+          branch: gh-pages
+          folder: docs/.vitepress/dist
+          # preserve old hash files, only when docs change, display commit message
+          # defalt true, will automatically delete files
+          clean: false
+          # default true, will force-push and overwrite existing deployment
+          force: false

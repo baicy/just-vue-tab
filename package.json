@@ -8,8 +8,7 @@
     "preview": "vite preview",
     "docs:dev": "vitepress dev docs",
     "docs:build": "vitepress build docs",
-    "docs:serve": "vitepress serve docs",
-    "deploy": "set -e && vitepress build docs && cd docs/.vitepress/dist && git init && git add -A && git commit -m 'deploy' && git push -f git@github.com:baicy/just-vue-tab.git master:gh-pages"
+    "docs:serve": "vitepress serve docs"
   },
   "dependencies": {
     "vue": "^3.2.25"
